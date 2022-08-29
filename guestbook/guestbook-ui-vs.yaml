@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: guestbook-ui-vs
+spec:
+  hosts:
+  - guestbook.bigbang.dev
+  http:
+  - name: "guestbook"
+    route:
+    - destination:
+        host: guestbook-ui.default.svc.cluster.local
+        subset: v2
+        
